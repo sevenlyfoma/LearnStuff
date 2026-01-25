@@ -29,7 +29,7 @@ function App() {
       // Now this will run if the server is off OR if it returns an error code
       setMessage('Failed to load message');
     });
-};
+  };
 
   // 2. Call it immediately on mount
   fetchData();
