@@ -1,71 +1,22 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { Component } from 'react';
+import './App.css';
+import Home from './Home';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ClientList from './ClientList';
+import ClientEdit from "./ClientEdit";
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  const [clients, setClient] = useState([])
-  
-    // 3. Fetch data on component mount
-    useEffect(() => {
-      // 1. Define the fetch function so we can call it immediately AND repeatedly
-    const fetchData = () => {
-    fetch('/clients')
-      .then(response => response.json())
-      .then(data => setClient(data))
-
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-        // Now this will run if the server is off OR if it returns an error code
-
-      });
-    };
-  
-    // 2. Call it immediately on mount
-    fetchData();
-  
-    // 3. Set up the interval (e.g., 500ms = 0.5 seconds)
-    const intervalId = setInterval(fetchData, 5000);
-  
-    // 4. CLEANUP: This is crucial! 
-    // It stops the timer if the component is destroyed/unmounted.
-    return () => clearInterval(intervalId);
-    }, []); // Empty array means this runs once when the app starts
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <div className="App-intro">
-        <h2>Clients</h2>
-        {clients.map(client =>
-            <div key={client.id}>
-              {client.name} ({client.email})
-            </div>
-        )}
-      </div>
-    </>
-  )
+class App extends Component {
+  render() {
+    return (
+        <Router>
+          <Switch>
+            <Route path='/' exact={true} component={Home}/>
+            <Route path='/clients' exact={true} component={ClientList}/>
+            <Route path='/clients/:id' component={ClientEdit}/>
+          </Switch>
+        </Router>
+    )
+  }
 }
 
-export default App
+export default App;
