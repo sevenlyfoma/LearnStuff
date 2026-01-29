@@ -1,4 +1,4 @@
-//https://www.w3schools.com/REACT/react_jsx_attributes.asp
+//https://www.w3schools.com/REACT/react_jsx_if_statements.asp
 
 function MultByFive(num) {
     return num * 5
@@ -38,6 +38,26 @@ function JsxDemo() {
         <p>My car is a {myobj.color} {myobj.name} {myobj.model} these info gotten from objects fields</p>
     );
 
+    const myfunc = () => {
+    alert('Hello World');
+    };
+
+    const storedFunction = (
+        <button onClick={myfunc}>Click me</button>
+    )
+    
+    const disabledButton = <button onClick={myfunc} disabled={true}>I cant be clicked</button>
+
+    const mystyles = {
+        color: "red",
+        fontSize: "20px",
+        backgroundColor: "lightyellow",
+    };
+
+
+    const attrCSS = <h1 style={mystyles}>Attribute changed my CSS</h1>
+
+
 
     //Nest jsx elements with curly braces
     const combi = (
@@ -47,7 +67,9 @@ function JsxDemo() {
             {varExample}
             {funcCallExample}
             {objectAttributesExample}
-            
+            {storedFunction}
+            {disabledButton}
+            {attrCSS}
         </div>
     )
 
