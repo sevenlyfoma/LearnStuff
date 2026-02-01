@@ -1,5 +1,3 @@
-//https://www.w3schools.com/REACT/react_components.asp
-
 function MultByFive(num) {
     return num * 5
 }
