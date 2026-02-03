@@ -55,7 +55,7 @@ class Header extends Component {
   render() {
     return (
       <div>
-        <h1>My Favorite Color is {this.state.favoritecolor}</h1>
+        <h2>My Favorite Color is {this.state.favoritecolor}</h2>
         <div id="div1"></div>
         <div id="div2"></div>
       </div>

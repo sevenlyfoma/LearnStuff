@@ -5,7 +5,7 @@ function MultByFive(num) {
 function JsxDemo() {
     //Curly braces are computed
     //className must be used instead of class
-    const myElement = <h1 className="myclass">React is {5 + 5} times better with JSX</h1>;
+    const myElement = <h2 className="myclass">React is {5 + 5} times better with JSX</h2>;
 
     //Comments in {/* */} which is weird
     const myListEle =  (
@@ -53,7 +53,7 @@ function JsxDemo() {
     };
 
 
-    const attrCSS = <h1 style={mystyles}>Attribute changed my CSS</h1>
+    const attrCSS = <h2 style={mystyles}>Attribute changed my CSS</h2>
 
     const x = 5;
 
