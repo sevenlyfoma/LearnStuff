@@ -1,6 +1,6 @@
 //https://www.w3schools.com/REACT/react_useeffect.asp
 
-import { useState, useEffect  } from 'react';
+import { useState, useEffect, useContext, createContext  } from 'react';
 import { createRoot } from 'react-dom/client';
 
 function FavoriteColor() {
@@ -45,7 +45,7 @@ function Timer() {
     }, 1000);
   });
 
-  return <h1>I've rendered {count} times!</h1>;
+  return <h2>I've rendered {count} times!</h2>;
 }
 
 function Timer2() {
@@ -57,7 +57,7 @@ function Timer2() {
     }, 1000);
   }, []); // <-- Empty brackets prevent reuse
 
-  return <h1>I've rendered {count2} times!</h1>;
+  return <h2>I've rendered {count2} times!</h2>;
 }
 
 
@@ -89,7 +89,40 @@ function Timer3() {
     return () => clearTimeout(timer)
   }, []);
 
-  return <h1>I've rendered {count4} times!</h1>;
+  return <h2>I've rendered {count4} times!</h2>;
+}
+
+const UserContext = createContext();
+
+function Component1() {
+  const [user, setUser] = useState("Max");
+
+  return (
+    <UserContext.Provider value={user}>
+      <h2>{`Hello ${user}!`}</h2>
+      <Component2 />
+    </UserContext.Provider>
+  );
+}
+
+function Component2() {
+  return (
+    <>
+      <h2>Component 2</h2>
+      <Component3 />
+    </>
+  );
+}
+
+function Component3() {
+  const user = useContext(UserContext);
+
+  return (
+    <>
+      <h2>Component 3</h2>
+      <h2>{`Hello ${user} again!`}</h2>
+    </>
+  );
 }
 
 function HooksDemo() {
@@ -100,6 +133,7 @@ function HooksDemo() {
                  <Timer2/>
                  <Counter/>
                  <Timer3/>
+                 <Component1/>
             </div>
         )
 }
