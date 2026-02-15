@@ -7,6 +7,7 @@ import ComponentsDemo from './ComponentsDemo.jsx'
 import PropsDemo from './PropsDemo.jsx'
 import EventsConditionalsDemo from './EventsConditionalsDemo.jsx'
 import HooksDemo from './HooksDemo.jsx'
+import ListsFormsDemo from './ListsFormsDemo.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -22,6 +23,8 @@ createRoot(document.getElementById('root')).render(
     <EventsConditionalsDemo />
     <h1>Hooks Demo:</h1>
     <HooksDemo />
+    <h1> Lists and Forms Demo</h1>
+    <ListsFormsDemo />
   </StrictMode>,
 )
 // createRoot(document.getElementById('root')).render(
